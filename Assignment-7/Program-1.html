@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 50px;
+    }
+    #timer {
+      font-size: 40px;
+      font-weight: bold;
+      color: #ff4500;
+    }
+    #message {
+      font-size: 24px;
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Flash Sale Countdown</h2>
+  <div id="timer">60</div>
+  <div id="message"></div>
+
+  <script>
+    let timeLeft = 60;
+    const timerDisplay = document.getElementById("timer");
+    const messageDisplay = document.getElementById("message");
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timerDisplay.textContent = "0";
+        messageDisplay.textContent = "Time's up! The offer has ended";
+      }
+    });
+  </script>
+
+</body>
+</html>

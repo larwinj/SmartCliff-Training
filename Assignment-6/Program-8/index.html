@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Auto-Fill Dropdown</title>
+  <style>
+    body {
+      margin: 40px;
+    }
+    select {
+      padding: 8px;
+      margin: 10px 0;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Signup Form - Country & State</h2>
+
+  <label for="country">Select Country:</label>
+  <select id="country">
+    <option value="">--Select Country--</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+  </select>
+
+  <br>
+
+  <label for="state">Select State:</label>
+  <select id="state">
+    <option value="">--Select State--</option>
+  </select>
+
+  <script>
+    const countryDropdown = document.getElementById("country");
+    const stateDropdown = document.getElementById("state");
+
+    const states = {
+      India: ["Tamil Nadu", "Kerala", "Maharashtra", "Delhi"],
+      USA: ["California", "Texas", "New York", "Florida"]
+    };
+
+    countryDropdown.addEventListener("change", () => {
+      const selectedCountry = countryDropdown.value;
+      stateDropdown.innerHTML = "<option value=''>--Select State--</option>";
+
+      if (states[selectedCountry]) {
+        states[selectedCountry].forEach(state => {
+          let option = document.createElement("option");
+          option.value = state;
+          option.textContent = state;
+          stateDropdown.appendChild(option);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

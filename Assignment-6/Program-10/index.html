@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration Form</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    form {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 600;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 5px 0 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #4CAF50;
+      outline: none;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+    }
+
+    .radio-group, .checkbox-group {
+      display: flex;
+      gap: 20px;
+      margin: 15px 0;
+    }
+
+    .radio-group label, .checkbox-group label {
+      font-weight: normal;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .error {
+      color: #e63946;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      min-height: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
+      form {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+<form id="registrationForm" novalidate>
+    <h2>User Registration</h2>
+  <label for="name">Name:</label>
+  <input type="text" id="name">
+  <div class="error" id="nameError"></div>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email">
+  <div class="error" id="emailError"></div>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password">
+  <div class="error" id="passwordError"></div>
+
+  <label for="confirmPassword">Confirm Password:</label>
+  <input type="password" id="confirmPassword">
+  <div class="error" id="confirmPasswordError"></div>
+
+  <label for="age">Age:</label>
+  <input type="number" id="age">
+  <div class="error" id="ageError"></div>
+
+  <label>Gender:</label>
+  <div class="radio-group">
+    <label><input type="radio" name="gender" value="Male"> Male</label>
+    <label><input type="radio" name="gender" value="Female"> Female</label>
+  </div>
+  <div class="error" id="genderError"></div>
+
+  <label>Interests:</label>
+  <div class="checkbox-group">
+    <label><input type="checkbox" name="interest" value="Sports"> Sports</label>
+    <label><input type="checkbox" name="interest" value="Music"> Music</label>
+    <label><input type="checkbox" name="interest" value="Reading"> Reading</label>
+  </div>
+  <div class="error" id="interestError"></div>
+
+  <label for="country">Country:</label>
+  <select id="country">
+    <option value="">--Select Country--</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+  </select>
+  <div class="error" id="countryError"></div>
+
+  <label for="dob">Date of Birth:</label>
+  <input type="date" id="dob">
+  <div class="error" id="dobError"></div>
+
+  <label for="profilePic">Profile Picture (jpg/png, <2MB):</label>
+  <input type="file" id="profilePic" accept=".jpg,.png">
+  <div class="error" id="fileError"></div>
+
+  <label for="bio">Bio:</label>
+  <textarea id="bio" maxlength="200"></textarea>
+  <div class="error" id="bioError"></div>
+
+  <button type="submit">Register</button>
+</form>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  let valid = true;
+
+  document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
+  // Name
+  const name = document.getElementById("name").value.trim();
+  if (name === "") {
+    document.getElementById("nameError").textContent = "Name cannot be empty.";
+    valid = false;
+  }
+
+  // Email
+  const email = document.getElementById("email").value;
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!emailPattern.test(email)) {
+    document.getElementById("emailError").textContent = "Invalid email format.";
+    valid = false;
+  }
+
+  // Password
+  const password = document.getElementById("password").value;
+  if (password.length < 6 || !/[A-Z]/.test(password) || !/\d/.test(password)) {
+    document.getElementById("passwordError").textContent = "Password must be ≥6 chars, include 1 uppercase & 1 number.";
+    valid = false;
+  }
+
+  // Confirm Password
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  if (confirmPassword !== password) {
+    document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+    valid = false;
+  }
+
+  // Age
+  const age = parseInt(document.getElementById("age").value);
+  if (isNaN(age) || age < 18 || age > 60) {
+    document.getElementById("ageError").textContent = "Age must be between 18 and 60.";
+    valid = false;
+  }
+
+  // Gender
+  const gender = document.querySelector("input[name='gender']:checked");
+  if (!gender) {
+    document.getElementById("genderError").textContent = "Please select a gender.";
+    valid = false;
+  }
+
+  // Interests
+  const interests = document.querySelectorAll("input[name='interest']:checked");
+  if (interests.length === 0) {
+    document.getElementById("interestError").textContent = "Select at least one interest.";
+    valid = false;
+  }
+
+  // Country
+  const country = document.getElementById("country").value;
+  if (country === "") {
+    document.getElementById("countryError").textContent = "Please select a country.";
+    valid = false;
+  }
+
+  // Date of Birth (18+ check)
+  const dob = document.getElementById("dob").value;
+  if (!dob) {
+    document.getElementById("dobError").textContent = "Please enter your date of birth.";
+    valid = false;
+  } else {
+    const dobDate = new Date(dob);
+    const today = new Date();
+    const ageCalc = today.getFullYear() - dobDate.getFullYear();
+    if (ageCalc < 18 || (ageCalc === 18 && today < new Date(dobDate.setFullYear(dobDate.getFullYear() + 18)))) {
+      document.getElementById("dobError").textContent = "You must be at least 18 years old.";
+      valid = false;
+    }
+  }
+
+  // File Upload
+  const file = document.getElementById("profilePic").files[0];
+  if (!file) {
+    document.getElementById("fileError").textContent = "Please upload a profile picture.";
+    valid = false;
+  } else if (!["image/jpeg", "image/png"].includes(file.type)) {
+    document.getElementById("fileError").textContent = "Only JPG or PNG files allowed.";
+    valid = false;
+  } else if (file.size > 2 * 1024 * 1024) {
+    document.getElementById("fileError").textContent = "File size must be less than 2MB.";
+    valid = false;
+  }
+
+  // Bio
+  const bio = document.getElementById("bio").value;
+  if (bio.length > 200) {
+    document.getElementById("bioError").textContent = "Bio cannot exceed 200 characters.";
+    valid = false;
+  }
+
+  // Final check
+  if (valid) {
+    alert("Registration Successful!");
+    this.reset();
+  }
+});
+</script>
+
+</body>
+</html>

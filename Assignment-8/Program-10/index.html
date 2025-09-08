@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Service Center</title>
+  <style>
+    body {
+      padding: 20px;
+    }
+    form {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 300px;
+    }
+    .status, .bill {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .status {
+      background: #f9f9f9;
+    }
+    .bill {
+      background: #e9f7ef;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vehicle Service Center</h1>
+  
+  <form id="serviceForm">
+    <h3>Customer Registration</h3>
+    <input type="text" id="name" placeholder="Customer Name" required><br><br>
+    <select id="vehicleType" required>
+      <option value="">Select Vehicle</option>
+      <option value="Car">Car</option>
+      <option value="Bike">Bike</option>
+    </select><br><br>
+    <input type="text" id="model" placeholder="Vehicle Model" required><br><br>
+    <input type="text" id="contact" placeholder="Contact Info" required><br><br>
+    
+    <h3>Book a Service</h3>
+    <select id="service" required>
+      <option value="">Select Service</option>
+      <option value="Oil Change">Oil Change - ₹1500</option>
+      <option value="Tire Replacement">Tire Replacement - ₹4000</option>
+      <option value="Engine Check">Engine Check - ₹2500</option>
+      <option value="Full Service">Full Service - ₹7000</option>
+    </select><br><br>
+    
+    <button type="submit">Book Service</button>
+  </form>
+  
+  <div id="status" class="status"></div>
+  <div id="bill" class="bill"></div>
+  
+  <script src="service.js"></script>
+</body>
+</html>

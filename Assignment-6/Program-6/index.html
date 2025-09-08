@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Counter</title>
+  <style>
+    body {
+      margin: 40px;
+      text-align: center;
+    }
+
+    textarea {
+      width: 300px;
+      height: 120px;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Character Counter (Max 100)</h2>
+  
+  <textarea id="myTextarea" placeholder="Type here..."></textarea>
+  <p id="charCount">100 characters remaining</p>
+
+  <script>
+    const textarea = document.getElementById("myTextarea");
+    const charCount = document.getElementById("charCount");
+    const maxLimit = 100;
+
+    textarea.addEventListener("input", () => {
+      const currentLength = textarea.value.length;
+      const remaining = maxLimit - currentLength;
+
+      if (remaining >= 0) {
+        charCount.textContent = `${remaining} characters remaining`;
+        charCount.classList.remove("error");
+      } else {
+        charCount.textContent = `Limit exceeded by ${Math.abs(remaining)} characters!`;
+        charCount.classList.add("error");
+      }
+    });
+  </script>
+</body>
+</html>

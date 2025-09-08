@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Search Filter</title>
+  <style>
+    #search {
+      width: 300px;
+      padding: 8px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    ul{
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px;
+      margin: 4px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+    li.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Live Search Filter Example</h2>
+  <input type="text" id="search" placeholder="Search items...">
+
+  <ul id="itemList">
+    <li>Laptop</li>
+    <li>Phone</li>
+    <li>Tablet</li>
+    <li>Headphones</li>
+    <li>Smartwatch</li>
+    <li>Camera</li>
+    <li>Charger</li>
+  </ul>
+
+  <script>
+    const searchBox = document.getElementById("search");
+    const items = document.querySelectorAll("#itemList li");
+
+    searchBox.addEventListener("keyup", function () {
+      const query = searchBox.value.toLowerCase();
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

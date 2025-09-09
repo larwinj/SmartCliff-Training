@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      window.tailwind = { config: { darkMode: "class" } };
+    </script>
+  </head>
+  <body class="min-h-dvh bg-gray-300 dark:bg-gray-900 flex flex-col items-center">
+    <div
+      class="w-full bg-blue-200 dark:bg-blue-800 h-16 flex items-center justify-between px-6"
+    >
+      <div class="text-lg font-bold "> Navbar</div>
+      <ul class="flex gap-6 text-gray-800 dark:text-slate-100">
+        <li
+          class="p-2 cursor-pointer hover:bg-green-300 rounded flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+
+          Home
+        </li>
+
+        <li
+          class="p-2 cursor-pointer hover:bg-green-300 rounded flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+            />
+          </svg>
+
+          About
+        </li>
+
+        <li
+          class="p-2 cursor-pointer hover:bg-green-300 rounded flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5.121 17.804A7.5 7.5 0 0112 15a7.5 7.5 0 016.879 2.804M12 12a5 5 0 100-10 5 5 0 000 10z"
+            />
+          </svg>
+          Profile
+        </li>
+
+        <li
+          id="btn"
+          class="p-2 cursor-pointer hover:bg-green-300 rounded flex items-center gap-2"
+        >
+          <svg
+            id="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646a9 9 0 1011.708 11.708z"
+            />
+          </svg>
+          <span>Light</span>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="w-11/12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8 gap-2.5 p-6"
+    >
+      <div
+        class="text-justify p-3 w-xs bg-amber-50 dark:bg-black dark:text-slate-100 border-2 border-amber-300 dark:border-amber-500 rounded-2xl shadow-md hover:shadow-xl dark:hover:shadow-2xl transition-shadow duration-300"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed
+        magnam dolores facilis repellat voluptas temporibus ab neque fugiat. Et
+        distinctio velit impedit ea quibusdam voluptas ducimus architecto
+        laudantium deleniti!
+      </div>
+      <div
+        class="text-justify p-3 w-xs bg-amber-50 dark:bg-black dark:text-slate-100 border-2 border-amber-300 dark:border-amber-500 rounded-2xl hover:shadow-xl transition-shadow duration-300 dark:hover:shadow-md dark:shadow-orange-200"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed
+        magnam dolores facilis repellat voluptas temporibus ab neque fugiat. Et
+        distinctio velit impedit ea quibusdam voluptas ducimus architecto
+        laudantium deleniti!
+      </div>
+      <div
+        class="text-justify p-3 w-xs bg-amber-50 dark:bg-black dark:text-slate-100 border-2 border-amber-300 dark:border-amber-500 rounded-2xl shadow-md hover:shadow-xl dark:hover:shadow-2xl transition-shadow duration-300"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed
+        magnam dolores facilis repellat voluptas temporibus ab neque fugiat. Et
+        distinctio velit impedit ea quibusdam voluptas ducimus architecto
+        laudantium deleniti!
+      </div>
+      <div
+        class="text-justify p-3 w-xs bg-amber-50 dark:bg-black dark:text-slate-100 border-2 border-amber-300 dark:border-amber-500 rounded-2xl shadow-md hover:shadow-xl dark:hover:shadow-2xl transition-shadow duration-300"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed
+        magnam dolores facilis repellat voluptas temporibus ab neque fugiat. Et
+        distinctio velit impedit ea quibusdam voluptas ducimus architecto
+        laudantium deleniti!
+      </div>
+    </div>
+
+    <script>
+  const btn = document.getElementById("btn");
+  const txt = btn.querySelector("span");
+
+  if (localStorage.getItem("theme") == "dark") {
+    document.documentElement.classList.add("dark");
+    change(txt);
+  }
+
+  btn.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    change(txt);
+  });
+
+  function change(txt) {
+    const icon = document.getElementById("icon");
+
+    if (txt.innerText === "Dark") {
+      txt.innerText = "Light";
+
+      icon.outerHTML = `
+        <svg id="icon" xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M12 3v1m0 16v1m9-9h1M4 12H3m16.95 6.95l-.707.707M6.343 6.343l-.707-.707m12.021 0l.707-.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+      `;
+    } else {
+      txt.innerText = "Dark";
+
+      icon.outerHTML = `
+        <svg id="icon" xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M20.354 15.354A9 9 0 018.646 3.646a9 9 0 1011.708 11.708z"/>
+        </svg>
+      `;
+    }
+  }
+</script>
+
+  </body>
+</html>

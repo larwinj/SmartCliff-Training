@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation + Sidebar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen flex flex-col">
+    <header class="bg-blue-600 text-white flex justify-between items-center px-6 py-4">
+
+        <div class="text-2xl font-bold">MyApp</div>
+        <nav class="flex space-x-4">
+            <button class="bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">Login</button>
+            <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded">Sign Up</button>
+        </nav>
+    </header>
+
+    <div class="flex flex-1">
+
+        <!-- Sidebar -->
+        <aside class="bg-gray-800 w-64 text-white p-6 space-y-6">
+            <nav class="flex flex-col space-y-4">
+                <a href="#" class="hover:bg-gray-700 p-2 rounded">Dashboard</a>
+                <a href="#" class="hover:bg-gray-700 p-2 rounded">Analytics</a>
+                <a href="#" class="hover:bg-gray-700 p-2 rounded">Settings</a>
+                <a href="#" class="hover:bg-gray-700 p-2 rounded">Messages</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 bg-gray-100 p-8">
+            <h2 class="text-3xl font-semibold mb-4">Main Content Area</h2>
+            <p class="text-gray-700">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, maiores ab. Labore
+                sapiente aperiam animi iste error sit optio harum, omnis reprehenderit facere porro alias accusantium,
+                dolores eos voluptates iusto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut deserunt, unde
+                dignissimos aut ex consequuntur vero at temporibus, fuga eius voluptatibus tempora. Esse, adipisci nihil
+                amet accusantium aliquam quisquam quia!</p>
+        </main>
+    </div>
+</body>
+
+</html>

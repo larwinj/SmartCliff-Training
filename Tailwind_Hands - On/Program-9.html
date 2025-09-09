@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Dashboard</title>
+    <link href="./Styles/output.css" rel="stylesheet" />
+  </head>
+  <body class="dark:bg-gray-900 bg-gray-100 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center bg-white dark:bg-gray-800 px-6 py-4 shadow-md">
+      <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">My Dashboard</h1>
+      <div class="flex items-center gap-4">
+        <button
+          onclick="toggleDarkMode()"
+          class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:scale-105 transition"
+        >
+          Toggle Dark Mode
+        </button>
+        <img
+          src="https://i.pravatar.cc/40"
+          alt="User"
+          class="rounded-full border-2 border-blue-500"
+        />
+      </div>
+    </nav>
+
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white dark:bg-gray-800 p-6 space-y-4 hidden md:block">
+        <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Navigation</h2>
+        <ul class="space-y-3">
+          <li><a href="#" class="block p-4 px-3 py-2 rounded-lg hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 dark:text-gray-300">🏠 Dashboard</a></li>
+          <li><a href="#" class="block p-4 px-3 py-2 rounded-lg hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 dark:text-gray-300">📊 Analytics</a></li>
+          <li><a href="#" class="block p-4 px-3 py-2 rounded-lg hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 dark:text-gray-300">⚙ Settings</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-6 space-y-6">
+        <!-- Stats Cards (Grid) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="text-gray-600 dark:text-gray-300">Users</h3>
+            <p class="text-2xl font-bold text-blue-600">1,245</p>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="text-gray-600 dark:text-gray-300">Sales</h3>
+            <p class="text-2xl font-bold text-green-600">$32,400</p>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="text-gray-600 dark:text-gray-300">Orders</h3>
+            <p class="text-2xl font-bold text-purple-600">320</p>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="text-gray-600 dark:text-gray-300">Feedback</h3>
+            <p class="text-2xl font-bold text-red-600">89</p>
+          </div>
+        </div>
+
+        <!-- Content Area (Flex + Grid) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Chart / Placeholder -->
+          <div class="col-span-2 bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Sales Overview</h3>
+            <div>
+                <img src="https://t3.ftcdn.net/jpg/01/30/35/82/360_F_130358232_eUstTQ2a7PdBTNa3EeWqgwhadSXuqmTL.jpg" alt="">
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Recent Activity</h3>
+            <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+              <li>User <strong>Larwin</strong> logged in</li>
+              <li>New order #1234 placed</li>
+              <li>Feedback received from <strong>Naveen</strong></li>
+              <li>Order #1111 delivered</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+
+     <script>
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        html.classList.toggle("dark");
+        localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+      }
+
+      window.onload = () => {
+        if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      };
+    </script>
+  </body>
+</html>

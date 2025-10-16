@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package quote;
+
+service QuoteStreamer {
+  rpc StreamQuotes (QuoteRequest) returns (stream QuoteResponse);
+  rpc ChatQuotes (stream QuoteRequest) returns (stream QuoteResponse);
+}
+
+message QuoteRequest {
+  string category = 1; 
+}
+
+message QuoteResponse {
+  string quote = 1;
+  string author = 2;
+}

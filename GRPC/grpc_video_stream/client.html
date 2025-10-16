@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>gRPC Video Streaming Progress</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 40px; }
+    video { width: 70%; border-radius: 10px; box-shadow: 0 0 10px gray; margin-bottom: 20px; }
+    #progressBox { background: #111; color: #0f0; padding: 10px; width: 50%; margin: auto; border-radius: 8px; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h1>🎥 gRPC Live Video Streaming Demo</h1>
+  <video id="videoPlayer" controls></video>
+  <div id="progressBox">Waiting for stream...</div>
+  <button onclick="play()">Go Video</button>
+
+  <script>
+    // Start streaming the video
+    function play(){
+        fetch('/stream')
+      .then(res => res.blob())
+      .then(blob => {
+        const video = document.getElementById('videoPlayer');
+        video.src = URL.createObjectURL(blob);
+        video.play();
+      });
+
+    // Listen for live progress updates
+    const eventSource = new EventSource('/progress');
+    eventSource.onmessage = function(event) {
+      document.getElementById('progressBox').innerText = event.data;
+    };
+    }
+  </script>
+</body>
+</html>
